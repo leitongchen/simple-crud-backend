@@ -1,7 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
 import productRoute from './backend/routes/product.route.js.js';
+
+dotenv.config();
 
 const app = express();
 
@@ -12,13 +15,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/products', productRoute);
 
 mongoose
-  .connect(
-    'mongodb+srv://admin:sdtwQxfzBFsxib7G@backenddb.tkqwe1n.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB'
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to DATABASE!');
 
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
       console.log('Server is running on port 3000');
     });
   })
