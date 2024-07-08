@@ -1,19 +1,21 @@
 {
-  "name": "crud-node-app",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node server.js",
-    "start": "cd src && nodemon server.js",
+    "serve": "cd src && node server.ts",
+    "start:nodemon": "cd src && nodemon server.ts",
+    "start:server": "npx tsx src/server.ts",
     "build": "npm install && tsc"
   },
   "keywords": [],
   "author": "LC",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.14.10",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongodb": "^6.8.0",
@@ -22,6 +24,8 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "tsx": "^4.16.2",
+    "ts-node": "^10.9.2"
   }
 }
